@@ -30,15 +30,20 @@ func ParseInlineCraftType(message string) (string, int, int) {
 		smashed := strings.TrimSpace(smash[1])
 		crafting := strings.Split(smashed, ":")
 
-		// get B-XXX:
-		preParsingItem := strings.Split(crafting[0], "-")
-		craftingType := preParsingItem[0]
-		itemID, _ := strconv.Atoi(preParsingItem[1])
+		if len(crafting) > 1 {
+			preParsingItem := strings.Split(crafting[0], "-")
 
-		// get :XXX
-		craftingIndex, _ := strconv.Atoi(crafting[1])
+			if len(preParsingItem) > 1 {
+				// get B-XXX:
+				craftingType := preParsingItem[0]
+				itemID, _ := strconv.Atoi(preParsingItem[1])
 
-		return craftingType, itemID, craftingIndex
+				// get :XXX
+				craftingIndex, _ := strconv.Atoi(crafting[1])
+
+				return craftingType, itemID, craftingIndex
+			}
+		}
 	}
 
 	return "", 0, 0
@@ -122,7 +127,7 @@ func DownloadFileFromURL(filename string, URL string) bool {
 func OpenFileByFileName(filename string) *os.File {
 	file, err := os.Open(filename)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 
 	return file

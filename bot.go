@@ -172,34 +172,40 @@ func inlineBaseCraft(InlineQuery *tgbotapi.InlineQuery) []interface{} {
 	case "B":
 		//craftingIndex is already incremented
 		baseItem := craftableItems.FindItemByID(itemID)
-		nextItem := craftingItemsList[itemID][craftingIndex]
 
-		itemInterface := tgbotapi.NewInlineQueryResultArticle(string(baseItem.ID), nextItem, "Crea "+nextItem)
-		itemInterface.Description = "Need for " + baseItem.Name + " ( " + strconv.Itoa(craftingIndex) + " / " + strconv.Itoa(len(craftingItemsList[itemID])-1) + " ) "
+		if craftingIndex <= len(craftingItemsList[itemID]) {
+			nextItem := craftingItemsList[itemID][craftingIndex]
 
-		// Controllo se se non è l'ultimo
-		if len(craftingItemsList[itemID]) > craftingIndex+1 {
-			replyText := "Next " + " ( " + strconv.Itoa(craftingIndex+1) + " / " + strconv.Itoa(len(craftingItemsList[itemID])-1) + " ) "
-			replyInputMessage := baseItem.Name + " 🔨 B-" + strconv.Itoa(baseItem.ID) + ":" + strconv.Itoa(craftingIndex+1)
-			itemInterface.ReplyMarkup = SetterCraftInlineKeyboard(replyText, replyInputMessage)
+			itemInterface := tgbotapi.NewInlineQueryResultArticle(string(baseItem.ID), nextItem, "Crea "+nextItem)
+			itemInterface.Description = "Need for " + baseItem.Name + " ( " + strconv.Itoa(craftingIndex) + " / " + strconv.Itoa(len(craftingItemsList[itemID])-1) + " ) "
+
+			// Controllo se se non è l'ultimo
+			if len(craftingItemsList[itemID]) > craftingIndex+1 {
+				replyText := "Next " + " ( " + strconv.Itoa(craftingIndex+1) + " / " + strconv.Itoa(len(craftingItemsList[itemID])-1) + " ) "
+				replyInputMessage := baseItem.Name + " 🔨 B-" + strconv.Itoa(baseItem.ID) + ":" + strconv.Itoa(craftingIndex+1)
+				itemInterface.ReplyMarkup = SetterCraftInlineKeyboard(replyText, replyInputMessage)
+			}
+
+			resultsForInlineQuery = append(resultsForInlineQuery, itemInterface)
 		}
 
-		resultsForInlineQuery = append(resultsForInlineQuery, itemInterface)
 	case "C":
 		fileName := "C-" + strconv.Itoa(itemID)
 		craftingItemsList := GetLinesFromFile("storage/clb/" + fileName + ".txt")
-		nextItem := craftingItemsList[craftingIndex]
+		if craftingIndex <= len(craftingItemsList) {
+			nextItem := craftingItemsList[craftingIndex]
 
-		itemInterface := tgbotapi.NewInlineQueryResultArticle(fileName, nextItem, nextItem)
-		itemInterface.Description = "Custom craft (" + strconv.Itoa(craftingIndex) + " / " + strconv.Itoa(len(craftingItemsList)-1) + " ) "
+			itemInterface := tgbotapi.NewInlineQueryResultArticle(fileName, nextItem, nextItem)
+			itemInterface.Description = "Custom craft (" + strconv.Itoa(craftingIndex) + " / " + strconv.Itoa(len(craftingItemsList)-1) + " ) "
 
-		if len(craftingItemsList) > craftingIndex+1 {
-			replyText := "Next " + " ( " + strconv.Itoa(craftingIndex+1) + " / " + strconv.Itoa(len(craftingItemsList)-1) + " ) "
-			replyInputMessage := "Custom Craft 🔨 " + fileName + ":" + strconv.Itoa(craftingIndex+1)
-			itemInterface.ReplyMarkup = SetterCraftInlineKeyboard(replyText, replyInputMessage)
+			if len(craftingItemsList) > craftingIndex+1 {
+				replyText := "Next " + " ( " + strconv.Itoa(craftingIndex+1) + " / " + strconv.Itoa(len(craftingItemsList)-1) + " ) "
+				replyInputMessage := "Custom Craft 🔨 " + fileName + ":" + strconv.Itoa(craftingIndex+1)
+				itemInterface.ReplyMarkup = SetterCraftInlineKeyboard(replyText, replyInputMessage)
+			}
+
+			resultsForInlineQuery = append(resultsForInlineQuery, itemInterface)
 		}
-
-		resultsForInlineQuery = append(resultsForInlineQuery, itemInterface)
 	}
 
 	return resultsForInlineQuery
