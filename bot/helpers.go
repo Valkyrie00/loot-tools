@@ -54,9 +54,11 @@ func SearchItem(s string) []loot.Item {
 	var results []loot.Item
 	list := craftableItems
 
-	for _, item := range list {
-		if strings.Contains(strings.ToUpper(item.Name), strings.ToUpper(s)) {
-			results = append(results, item)
+	if len(s) >= 3 {
+		for _, item := range list {
+			if strings.Contains(strings.ToUpper(item.Name), strings.ToUpper(s)) {
+				results = append(results, item)
+			}
 		}
 	}
 
