@@ -1,3 +1,9 @@
+v1.1.3
+
+- Fix changelog
+- Rimossa dipendenza inutilizzata nel nuovo modello di struttura
+- Aggiunto controllo ricerca, ciclo elementi solo se la lunghezza della stringa in input e maggiore o ugale a 3
+
 v1.1.2
 
 - Refactoring struttura bot
