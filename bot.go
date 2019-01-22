@@ -24,7 +24,7 @@ var (
 func init() {
 	errEnv := godotenv.Load()
 	if errEnv != nil {
-		log.Fatal("Error loading .env file")
+		log.Println("Error loading .env file")
 	}
 
 	adminID, _ = strconv.Atoi(os.Getenv("ID_ADMIN"))
