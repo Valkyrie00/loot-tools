@@ -4,7 +4,6 @@ import (
 	"log"
 
 	"github.com/Valkyrie00/loot-tools/bot"
-	_ "github.com/joho/godotenv/autoload"
 )
 
 func main() {
