@@ -9,6 +9,7 @@ import (
 
 	"github.com/Valkyrie00/loot-tools/loot"
 	"github.com/go-telegram-bot-api/telegram-bot-api"
+	_ "github.com/joho/godotenv/autoload"
 )
 
 var (
@@ -22,11 +23,6 @@ var (
 )
 
 func init() {
-	// errEnv := godotenv.Load()
-	// if errEnv != nil {
-	// 	log.Println("Error loading .env file")
-	// }
-
 	adminID, _ = strconv.Atoi(os.Getenv("ID_ADMIN"))
 	botMode = os.Getenv("BOT_MODE") // Private or public
 	botAPIKey = os.Getenv("TELEGRAM_APIKEY")

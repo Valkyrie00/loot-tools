@@ -1,8 +1,8 @@
 hash: 3b7557d3d0215ed0884bfb96bc4fa86aea20ee84582dc61f9bd77466127d1173
-updated: 2019-01-22T13:31:22.524445+01:00
+updated: 2019-01-22T21:43:09.795912+01:00
 imports:
 - name: github.com/go-telegram-bot-api/telegram-bot-api
-  version: ec221ba9ea458cd5386c35dd90af04b8a895f8eb
+  version: 9860bdfd3a171ceafb6e1eafa163482a6ef92643
 - name: github.com/joho/godotenv
   version: 23d116af351c84513e1946b527c88823e476be13
 - name: github.com/technoweenie/multipartstreamer

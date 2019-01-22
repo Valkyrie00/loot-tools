@@ -6,6 +6,8 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+
+	_ "github.com/joho/godotenv/autoload" //Autoload env
 )
 
 var (
@@ -14,11 +16,6 @@ var (
 )
 
 func init() {
-	// errEnv := godotenv.Load()
-	// if errEnv != nil {
-	// 	log.Fatal("Error loading .env file")
-	// }
-
 	lootToken = os.Getenv("LOOT_APIKEY")
 	cacheCraftsMap = make(map[int]CraftResponse)
 }
