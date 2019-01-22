@@ -1,123 +1,11 @@
-package main
+package bot
 
 import (
-	"fmt"
 	"log"
-	"net/http"
-	"os"
 	"strconv"
 
-	"github.com/Valkyrie00/loot-tools/loot"
 	"github.com/go-telegram-bot-api/telegram-bot-api"
-	_ "github.com/joho/godotenv/autoload"
 )
-
-var (
-	bot               *tgbotapi.BotAPI
-	craftableItems    loot.Items
-	craftingItemsList loot.ItemsCraftingMapType
-
-	botMode   string
-	adminID   int
-	botAPIKey string
-)
-
-func init() {
-	adminID, _ = strconv.Atoi(os.Getenv("ID_ADMIN"))
-	botMode = os.Getenv("BOT_MODE") // Private or public
-	botAPIKey = os.Getenv("TELEGRAM_APIKEY")
-
-	var botErr error
-	bot, botErr = tgbotapi.NewBotAPI(botAPIKey)
-	bot.Debug = true
-
-	if botErr != nil {
-		log.Panic(botErr)
-	}
-	log.Println(fmt.Sprintf("Bot connected: %s", bot.Self.UserName))
-
-	// Load craftable items
-	craftableItems = loot.GetCraftableItems()
-
-	// Load crafting map
-	craftingItemsList = loot.GetCraftingMap(craftableItems)
-}
-
-func main() {
-	// PingServer
-	log.Println("Start Web")
-	go web()
-
-	u := tgbotapi.NewUpdate(0)
-	u.Timeout = 60
-
-	updates, chanErr := bot.GetUpdatesChan(u)
-	if chanErr != nil {
-		log.Panicln(chanErr)
-	}
-
-	for update := range updates {
-		// Message
-		if update.Message != nil {
-			if botMode == "private" {
-				if update.Message.From.ID != adminID {
-					continue
-				}
-			}
-
-			message(update.Message)
-		}
-
-		// Inline query
-		if update.InlineQuery != nil && update.InlineQuery.Query != "" {
-			if botMode == "private" {
-				if update.InlineQuery.From.ID != adminID {
-					continue
-				}
-			}
-
-			inline(update.InlineQuery)
-		}
-	}
-}
-
-func message(Message *tgbotapi.Message) {
-	// CLB - Made for custom craft
-	if Message.ForwardFrom != nil {
-		if Message.ForwardFrom.ID == 280391978 {
-			if Message.Document != nil {
-				fileName := "C-" + strconv.Itoa(Message.Date)
-				fileID := Message.Document.FileID
-				fileURL, _ := bot.GetFileDirectURL(fileID)
-
-				if fileURL != "" {
-					donwloadStatus := DownloadFileFromURL(fileName, fileURL)
-					if donwloadStatus == true {
-						log.Println("File Creato correttamente")
-
-						msg := tgbotapi.NewMessage(Message.Chat.ID, "Lista caricata correttamente")
-						msg.ReplyToMessageID = Message.MessageID
-
-						replyInputMessage := "Custom Craft 🔨 " + fileName + ":1"
-						msg.ReplyMarkup = SetterSwitchCLBInlineKeyboard("Start", replyInputMessage)
-
-						// Send message start craft
-						if _, err := bot.Send(msg); err != nil {
-							log.Println(err)
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-// Logic Structure (Inline Process)
-// -- Telegram
-// ---- Search
-// ---- Craft
-// ------ Base Craft
-// ------ Custom Crat (CLB)
 
 func inline(InlineQuery *tgbotapi.InlineQuery) {
 	var inlineResults []interface{}
@@ -213,19 +101,4 @@ func inlineBaseCraft(InlineQuery *tgbotapi.InlineQuery) []interface{} {
 	}
 
 	return resultsForInlineQuery
-}
-
-func web() {
-	port := os.Getenv("PORT")
-
-	if port == "" {
-		port = "8011"
-		log.Println("$PORT must be set")
-	}
-
-	http.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Pong")
-	})
-
-	http.ListenAndServe(":"+port, nil)
 }

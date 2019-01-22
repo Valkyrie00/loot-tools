@@ -38,7 +38,7 @@ func GetCraftableItems() []Item {
 	return items
 }
 
-// GetCraftingMap -
+// GetCraftingMap - Get from remote crafting map
 func GetCraftingMap(itemsList []Item) ItemsCraftingMapType {
 	itemsCraftingMap := make(ItemsCraftingMapType)
 
@@ -84,7 +84,7 @@ func GetCraftingMap(itemsList []Item) ItemsCraftingMapType {
 	return itemsCraftingMap
 }
 
-// listitems è la lista di item da ricercare, toCraft è la lista di tutte le cose da craftare
+// Recursive - iterate crafting items
 func mapCraft(listItems []int, toCrafts *[]string) {
 	for index := 0; index < 1; index++ {
 		item := listItems[index]
