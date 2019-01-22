@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 	"strconv"
 
@@ -17,7 +18,7 @@ var (
 
 	botMode   string
 	adminID   int
-	botApiKey string
+	botAPIKey string
 )
 
 func init() {
@@ -28,10 +29,10 @@ func init() {
 
 	adminID, _ = strconv.Atoi(os.Getenv("ID_ADMIN"))
 	botMode = os.Getenv("BOT_MODE") // Private or public
-	botApiKey = os.Getenv("TELEGRAM_APIKEY")
+	botAPIKey = os.Getenv("TELEGRAM_APIKEY")
 
 	var botErr error
-	bot, botErr = tgbotapi.NewBotAPI(botApiKey)
+	bot, botErr = tgbotapi.NewBotAPI(botAPIKey)
 	bot.Debug = true
 
 	if botErr != nil {
@@ -47,6 +48,10 @@ func init() {
 }
 
 func main() {
+	// PingServer
+	log.Println("Start Web")
+	go web()
+
 	u := tgbotapi.NewUpdate(0)
 	u.Timeout = 60
 
@@ -212,4 +217,19 @@ func inlineBaseCraft(InlineQuery *tgbotapi.InlineQuery) []interface{} {
 	}
 
 	return resultsForInlineQuery
+}
+
+func web() {
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "8011"
+		log.Println("$PORT must be set")
+	}
+
+	http.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Pong")
+	})
+
+	http.ListenAndServe(":"+port, nil)
 }
