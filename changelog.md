@@ -1,9 +1,15 @@
-Beta Tester:
-Ago1896
-tdjj05
-Arenter
-JackTheDipper
-Euangelos
+v1.1.2
+
+- Refactoring struttura bot
+
+v1.0.1
+
+- Rilascio ufficila su Heroku
+
+v1.0.1
+
+- Primo rilascio e fase di test
+- Fix panic error generici
 
 v0.2b
 
@@ -13,7 +19,9 @@ v0.2b
 - Sistemati messaggi di step
 - Aggiunto inoltro messagio CLB e custom craft
 
-TODO
-
-- Bottone menu/contrabbandiere alla conclusione
-- verificare nome slutbot
+Beta Tester:
+Ago1896
+tdjj05
+Arenter
+JackTheDipper
+Euangelos
