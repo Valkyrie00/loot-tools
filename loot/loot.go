@@ -6,6 +6,8 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 var (
@@ -14,8 +16,12 @@ var (
 )
 
 func init() {
-	lootToken = "V71L06foMz3ajlp811224"
+	errEnv := godotenv.Load()
+	if errEnv != nil {
+		log.Fatal("Error loading .env file")
+	}
 
+	lootToken = os.Getenv("LOOT_APIKEY")
 	cacheCraftsMap = make(map[int]CraftResponse)
 }
 
@@ -48,7 +54,7 @@ func GetCraftingMap(itemsList []Item) ItemsCraftingMapType {
 			fmt.Println(err)
 		}
 
-		log.Println("craftingMaps.json - Successfully Opened!")
+		log.Println("LOAD - CaftingMap: OK!")
 
 		byteValue, _ := ioutil.ReadAll(craftingMapsFile)
 		json.Unmarshal([]byte(byteValue), &itemsCraftingMap)

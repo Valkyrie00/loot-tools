@@ -3,10 +3,12 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 	"strconv"
 
 	"github.com/Valkyrie00/loot-tools/loot"
 	"github.com/go-telegram-bot-api/telegram-bot-api"
+	"github.com/joho/godotenv"
 )
 
 var (
@@ -14,35 +16,35 @@ var (
 	craftableItems    loot.Items
 	craftingItemsList loot.ItemsCraftingMapType
 
-	botIsOpen string
+	botMode   string
 	adminID   int
+	botApiKey string
 )
 
-// Start Bot: ISOPEN=private ADMINID=132173224 go run *.go
 func init() {
-
-	// Private or public - Turn bot in private mode only for: 132173224
-	adminID, _ = strconv.Atoi(GetEnv("ADMINID", ""))
-	botIsOpen = GetEnv("ISOPEN", "private")
-
-	var err error
-	//SluutBot
-	bot, err = tgbotapi.NewBotAPI("692243762:AAFhRfywSWDHCHe9hHlypKd86ygY0wq0eB8")
-	bot.Debug = true
-
-	if err != nil {
-		log.Panic(err)
+	errEnv := godotenv.Load()
+	if errEnv != nil {
+		log.Fatal("Error loading .env file")
 	}
 
-	logMessage := fmt.Sprintf("Bot connesso correttamente %s", bot.Self.UserName)
-	log.Println(logMessage)
+	adminID, _ = strconv.Atoi(os.Getenv("ID_ADMIN"))
+	botMode = os.Getenv("BOT_MODE") // Private or public
+	botApiKey = os.Getenv("TELEGRAM_APIKEY")
+
+	var botErr error
+	bot, botErr = tgbotapi.NewBotAPI(botApiKey)
+	bot.Debug = true
+
+	if botErr != nil {
+		log.Panic(botErr)
+	}
+	log.Println(fmt.Sprintf("Bot connected: %s", bot.Self.UserName))
 
 	// Load craftable items
 	craftableItems = loot.GetCraftableItems()
 
 	// Load crafting map
 	craftingItemsList = loot.GetCraftingMap(craftableItems)
-
 }
 
 func main() {
@@ -57,7 +59,7 @@ func main() {
 	for update := range updates {
 		// Message
 		if update.Message != nil {
-			if botIsOpen == "private" {
+			if botMode == "private" {
 				if update.Message.From.ID != adminID {
 					continue
 				}
@@ -68,7 +70,7 @@ func main() {
 
 		// Inline query
 		if update.InlineQuery != nil && update.InlineQuery.Query != "" {
-			if botIsOpen == "private" {
+			if botMode == "private" {
 				if update.InlineQuery.From.ID != adminID {
 					continue
 				}
