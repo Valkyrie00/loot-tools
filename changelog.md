@@ -3,6 +3,8 @@ v1.1.3
 - Fix changelog
 - Rimossa dipendenza inutilizzata nel nuovo modello di struttura
 - Aggiunto controllo ricerca, ciclo elementi solo se la lunghezza della stringa in input e maggiore o ugale a 3
+- Fix craft Anima dello Scudo Romano
+- Aggiunta funzionalità generazione lista per migliorare postazione
 
 v1.1.2
 
