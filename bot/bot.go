@@ -74,5 +74,16 @@ func Handler() {
 
 			inline(update.InlineQuery)
 		}
+
+		// CallbackQuery
+		if update.CallbackQuery != nil {
+			if botMode == "private" {
+				if update.InlineQuery.From.ID != adminID {
+					continue
+				}
+			}
+
+			callback(update.CallbackQuery)
+		}
 	}
 }

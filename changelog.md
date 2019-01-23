@@ -1,4 +1,8 @@
-v1.1.3
+v1.3.2
+
+- Aggiunto parser miglioramento postazione per creazione lista da mandare a loot bot plus
+
+v1.2.2
 
 - Fix changelog
 - Rimossa dipendenza inutilizzata nel nuovo modello di struttura

@@ -18,7 +18,86 @@ func message(Message *tgbotapi.Message) {
 		// Loot Bot - Forward
 		if Message.ForwardFrom.ID == 171514820 {
 			if strings.Contains(Message.Text, "migliorare la postazione") {
-				lootPlatformCraftParser(Message)
+				lootPlatformForwardHandler(Message)
+			}
+		}
+	}
+}
+
+// Loot platform message handler
+func lootPlatformForwardHandler(Message *tgbotapi.Message) {
+	craftInputMessage := "lootPlatformCraftParser"
+	negozioInputMessage := "lootPlatformShopParser"
+	keyboard := tgbotapi.NewInlineKeyboardMarkup(
+		tgbotapi.NewInlineKeyboardRow(
+			tgbotapi.InlineKeyboardButton{
+				Text:         "🔨 Craft",
+				CallbackData: &craftInputMessage,
+			},
+			tgbotapi.InlineKeyboardButton{
+				Text:         "💰 Negozio",
+				CallbackData: &negozioInputMessage,
+			},
+		),
+	)
+	msg := tgbotapi.NewMessage(Message.Chat.ID, "Come vuoi convertire la lista? 👻")
+	msg.ReplyToMessageID = Message.MessageID
+	msg.ReplyMarkup = keyboard
+
+	if _, err := bot.Send(msg); err != nil {
+		log.Println(err)
+	}
+}
+
+// Loot - Platflorm shop parser
+func lootPlatformShopParser(Message *tgbotapi.Message) {
+	lines := strings.Split(Message.Text, "\n")
+
+	var itemIndex int
+	var results []string
+	stringResult := "/negozio "
+
+	itemIndex = 0
+	for i, line := range lines {
+		if strings.Contains(line, "✅") {
+			if itemIndex >= 10 {
+				stringResult = strings.TrimSuffix(stringResult, ",")
+				results = append(results, stringResult)
+				itemIndex = 0
+				stringResult = "/negozio "
+			}
+
+			itemName := GetStringInBetween(line, "> ", " (")
+			todoItems := strings.Split(GetStringInBetween(line, ") ", " ✅"), "/")
+			partialResult := itemName + "::" + todoItems[1] + ","
+
+			stringResult = stringResult + partialResult
+			itemIndex++
+		}
+
+		if len(lines)-1 == i {
+			log.Println(len(lines), i)
+			stringResult = strings.TrimSuffix(stringResult, ",")
+			results = append(results, stringResult)
+		}
+	}
+
+	if len(results) >= 1 {
+		deleteInputMessage := "deleteMessage"
+		keyboard := tgbotapi.NewInlineKeyboardMarkup(
+			tgbotapi.NewInlineKeyboardRow(
+				tgbotapi.InlineKeyboardButton{
+					Text:         "🗑 Cancella",
+					CallbackData: &deleteInputMessage,
+				},
+			),
+		)
+
+		for _, result := range results {
+			msg := tgbotapi.NewMessage(Message.Chat.ID, result)
+			msg.ReplyMarkup = keyboard
+			if _, err := bot.Send(msg); err != nil {
+				log.Println(err)
 			}
 		}
 	}
@@ -32,7 +111,6 @@ func lootPlatformCraftParser(Message *tgbotapi.Message) {
 
 	for _, line := range lines {
 		if strings.Contains(line, "🚫") {
-
 			itemName := GetStringInBetween(line, "> ", " (")
 			todoItems := strings.Split(GetStringInBetween(line, ") ", " 🚫"), "/")
 			qToCraft, _ := strconv.Atoi(todoItems[0])
@@ -40,31 +118,26 @@ func lootPlatformCraftParser(Message *tgbotapi.Message) {
 
 			partialResult := itemName + ":" + strconv.Itoa(qHaveItem-qToCraft) + ","
 			stringResult = stringResult + partialResult
-
 		}
 	}
 
 	stringResult = strings.TrimSuffix(stringResult, ",")
-	var messages []tgbotapi.MessageConfig
 
-	{
-		msg := tgbotapi.NewMessage(Message.Chat.ID, "Craft postazioni generato. Ora puoi inoltrarlo a *CLB*.")
-		msg.ReplyToMessageID = Message.MessageID
-		msg.ParseMode = "Markdown"
+	deleteInputMessage := "deleteMessage"
+	keyboard := tgbotapi.NewInlineKeyboardMarkup(
+		tgbotapi.NewInlineKeyboardRow(
+			tgbotapi.InlineKeyboardButton{
+				Text:         "🗑 Cancella",
+				CallbackData: &deleteInputMessage,
+			},
+		),
+	)
 
-		messages = append(messages, msg)
-	}
-	{
-		msg := tgbotapi.NewMessage(Message.Chat.ID, stringResult)
-		msg.ParseMode = "Markdown"
+	msg := tgbotapi.NewMessage(Message.Chat.ID, stringResult)
+	msg.ReplyMarkup = keyboard
 
-		messages = append(messages, msg)
-	}
-
-	for _, message := range messages {
-		if _, err := bot.Send(message); err != nil {
-			log.Println(err)
-		}
+	if _, err := bot.Send(msg); err != nil {
+		log.Println(err)
 	}
 }
 
