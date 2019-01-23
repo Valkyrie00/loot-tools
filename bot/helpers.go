@@ -70,7 +70,7 @@ func SetterCraftInlineKeyboard(text string, inputMessage string) *tgbotapi.Inlin
 	keyboard := tgbotapi.NewInlineKeyboardMarkup(
 		tgbotapi.NewInlineKeyboardRow(
 			tgbotapi.InlineKeyboardButton{
-				Text: text,
+				Text:                         text,
 				SwitchInlineQueryCurrentChat: &inputMessage,
 			},
 		),
@@ -167,4 +167,15 @@ func GetLinesFromFile(filename string) []string {
 	lines := ScanFile(file)
 
 	return lines
+}
+
+//GetStringInBetween - Get string between charset
+func GetStringInBetween(str string, start string, end string) (result string) {
+	s := strings.Index(str, start)
+	if s == -1 {
+		return
+	}
+	s += len(start)
+	e := strings.Index(str, end)
+	return str[s:e]
 }
