@@ -28,4 +28,9 @@ func callback(CallbackQuery *tgbotapi.CallbackQuery) {
 			log.Println(err)
 		}
 	}
+
+	returnCallBack := tgbotapi.NewCallback(CallbackQuery.ID, "")
+	if _, err := bot.AnswerCallbackQuery(returnCallBack); err != nil {
+		log.Println(err.Error())
+	}
 }
