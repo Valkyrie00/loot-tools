@@ -59,7 +59,7 @@ func lootPlatformShopParser(Message *tgbotapi.Message) {
 
 	itemIndex = 0
 	for i, line := range lines {
-		if strings.Contains(line, "✅") {
+		if strings.Contains(line, "🚫") {
 			if itemIndex >= 10 {
 				stringResult = strings.TrimSuffix(stringResult, ",")
 				results = append(results, stringResult)
@@ -68,7 +68,7 @@ func lootPlatformShopParser(Message *tgbotapi.Message) {
 			}
 
 			itemName := GetStringInBetween(line, "> ", " (")
-			todoItems := strings.Split(GetStringInBetween(line, ") ", " ✅"), "/")
+			todoItems := strings.Split(GetStringInBetween(line, ") ", " 🚫"), "/")
 			partialResult := itemName + "::" + todoItems[1] + ","
 
 			stringResult = stringResult + partialResult
