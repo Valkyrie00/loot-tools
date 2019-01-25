@@ -88,7 +88,7 @@ func inlineBaseCraft(InlineQuery *tgbotapi.InlineQuery) []interface{} {
 			nextItem := craftingItemsList[craftingIndex]
 
 			itemInterface := tgbotapi.NewInlineQueryResultArticle(fileName, nextItem, nextItem)
-			itemInterface.Description = "Custom craft (" + strconv.Itoa(craftingIndex) + " / " + strconv.Itoa(len(craftingItemsList)-1) + " ) "
+			itemInterface.Description = "Custom craft ( " + strconv.Itoa(craftingIndex) + " / " + strconv.Itoa(len(craftingItemsList)-1) + " ) "
 
 			if len(craftingItemsList) > craftingIndex+1 {
 				replyText := "Next " + " ( " + strconv.Itoa(craftingIndex+1) + " / " + strconv.Itoa(len(craftingItemsList)-1) + " ) "
