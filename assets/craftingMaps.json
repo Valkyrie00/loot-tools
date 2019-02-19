@@ -22,7 +22,11 @@
     "Manico Ultra",
     "Manico Diabolico"
   ],
-  "106": ["Bomba di Schegge", "Molotov", "Bomba Distruttiva"],
+  "106": [
+    "Bomba di Schegge",
+    "Molotov",
+    "Bomba Distruttiva"
+  ],
   "107": [
     "Bronzo",
     "Regolatore",
@@ -55,12 +59,30 @@
     "Catalizzatore X",
     "Componente Elettronico Avanzato"
   ],
-  "115": ["Base Elettrica"],
-  "116": ["Base Elettrica", "Circuito Elettrico"],
-  "117": ["Base Elettrica", "Circuito Elettrico", "Componente Elettrico Base"],
-  "118": ["Frusta Resistente"],
-  "119": ["Frusta Resistente", "Frusta Diamante"],
-  "120": ["Frusta Resistente", "Frusta Diamante", "Frusta Ultra"],
+  "115": [
+    "Base Elettrica"
+  ],
+  "116": [
+    "Base Elettrica",
+    "Circuito Elettrico"
+  ],
+  "117": [
+    "Base Elettrica",
+    "Circuito Elettrico",
+    "Componente Elettrico Base"
+  ],
+  "118": [
+    "Frusta Resistente"
+  ],
+  "119": [
+    "Frusta Resistente",
+    "Frusta Diamante"
+  ],
+  "120": [
+    "Frusta Resistente",
+    "Frusta Diamante",
+    "Frusta Ultra"
+  ],
   "121": [
     "Frusta Resistente",
     "Frusta Diamante",
@@ -75,8 +97,14 @@
     "Componente Elettronico Avanzato",
     "Frusta Elettrica"
   ],
-  "122": ["Corazza di Metallo"],
-  "123": ["Corazza di Metallo", "Protezione di Stoffa", "Corazza Acciaio"],
+  "122": [
+    "Corazza di Metallo"
+  ],
+  "123": [
+    "Corazza di Metallo",
+    "Protezione di Stoffa",
+    "Corazza Acciaio"
+  ],
   "124": [
     "Corazza di Metallo",
     "Protezione di Stoffa",
@@ -103,12 +131,29 @@
     "Corazza Ambra",
     "Corazza Elettrica"
   ],
-  "129": ["Katana Arrugginita"],
-  "13": ["Coltello di Pietra"],
-  "130": ["Katana Arrugginita", "Katana Affilata"],
-  "131": ["Katana Arrugginita", "Katana Affilata", "Katana Mortale"],
-  "132": ["Artigli di Legno"],
-  "133": ["Artigli di Legno", "Lastra di Metallo", "Artigli Corazzati"],
+  "129": [
+    "Katana Arrugginita"
+  ],
+  "13": [
+    "Coltello di Pietra"
+  ],
+  "130": [
+    "Katana Arrugginita",
+    "Katana Affilata"
+  ],
+  "131": [
+    "Katana Arrugginita",
+    "Katana Affilata",
+    "Katana Mortale"
+  ],
+  "132": [
+    "Artigli di Legno"
+  ],
+  "133": [
+    "Artigli di Legno",
+    "Lastra di Metallo",
+    "Artigli Corazzati"
+  ],
   "134": [
     "Artigli di Legno",
     "Lastra di Metallo",
@@ -130,8 +175,17 @@
     "Componente Elettronico Avanzato",
     "Artigli Elettrici"
   ],
-  "136": ["Cuoio", "Protezione di Stoffa", "Sella di Cuoio"],
-  "137": ["Cuoio", "Protezione di Stoffa", "Sella di Cuoio", "Sella Corazzata"],
+  "136": [
+    "Cuoio",
+    "Protezione di Stoffa",
+    "Sella di Cuoio"
+  ],
+  "137": [
+    "Cuoio",
+    "Protezione di Stoffa",
+    "Sella di Cuoio",
+    "Sella Corazzata"
+  ],
   "138": [
     "Cuoio",
     "Protezione di Stoffa",
@@ -154,10 +208,22 @@
     "Protezione Indistruttibile",
     "Sella di Adamantio"
   ],
-  "14": ["Coltello di Pietra", "Pietra Volteggiante"],
-  "144": ["Mattoni", "Cemento Armato"],
-  "145": ["Mattoni", "Cemento Armato", "Materiale da Costruzione"],
-  "146": ["Mattoni"],
+  "14": [
+    "Coltello di Pietra",
+    "Pietra Volteggiante"
+  ],
+  "144": [
+    "Mattoni",
+    "Cemento Armato"
+  ],
+  "145": [
+    "Mattoni",
+    "Cemento Armato",
+    "Materiale da Costruzione"
+  ],
+  "146": [
+    "Mattoni"
+  ],
   "147": [
     "Carica Negativa",
     "Base Elettrica",
@@ -177,7 +243,10 @@
     "Materiale da Costruzione",
     "Progetto di Costruzione"
   ],
-  "148": ["Rivestimento di Piombo", "Marmo"],
+  "148": [
+    "Rivestimento di Piombo",
+    "Marmo"
+  ],
   "149": [
     "Meccanismo di Ferro",
     "Meccanismo Dorato",
@@ -199,7 +268,9 @@
     "Catalizzatore Ultra",
     "Titanio"
   ],
-  "15": ["Tavolino"],
+  "15": [
+    "Tavolino"
+  ],
   "150": [
     "Meccanismo di Ferro",
     "Meccanismo Dorato",
@@ -240,7 +311,9 @@
     "Runa Alchemica",
     "Manico Ultra"
   ],
-  "153": ["Lama Cremisi"],
+  "153": [
+    "Lama Cremisi"
+  ],
   "154": [
     "Lama Cremisi",
     "Aggancio di Plutonio",
@@ -328,9 +401,18 @@
     "Sciabola dello Stregone Celeste",
     "Componente Supremo Alpha"
   ],
-  "156": ["Falce Tagliente"],
-  "157": ["Falce Tagliente", "Falce Oscura"],
-  "158": ["Falce Tagliente", "Falce Oscura", "Falce Divina"],
+  "156": [
+    "Falce Tagliente"
+  ],
+  "157": [
+    "Falce Tagliente",
+    "Falce Oscura"
+  ],
+  "158": [
+    "Falce Tagliente",
+    "Falce Oscura",
+    "Falce Divina"
+  ],
   "159": [
     "Rivestimento di Piombo",
     "Falce Tagliente",
@@ -361,7 +443,9 @@
     "Pugnale Leggendario della Fine",
     "Falce Cremisi"
   ],
-  "162": ["Rivestimento di Piombo"],
+  "162": [
+    "Rivestimento di Piombo"
+  ],
   "163": [
     "Rivestimento di Piombo",
     "Carica Negativa",
@@ -422,8 +506,15 @@
     "Cannone Pesante",
     "Cannone a Ioni"
   ],
-  "166": ["Rivestimento Statico", "Unguento Statico", "Miscela"],
-  "167": ["Rivestimento Statico", "Unguento Statico"],
+  "166": [
+    "Rivestimento Statico",
+    "Unguento Statico",
+    "Miscela"
+  ],
+  "167": [
+    "Rivestimento Statico",
+    "Unguento Statico"
+  ],
   "168": [
     "Rivestimento di Piombo",
     "Falce Tagliente",
@@ -481,9 +572,18 @@
     "Frusta Statica",
     "Componente Supremo Beta"
   ],
-  "17": ["Molotov"],
-  "170": ["Corazza di Metallo", "Pelle Resistente"],
-  "171": ["Corazza di Metallo", "PelleResistente", "Pelle di Diamante"],
+  "17": [
+    "Molotov"
+  ],
+  "170": [
+    "Corazza di Metallo",
+    "Pelle Resistente"
+  ],
+  "171": [
+    "Corazza di Metallo",
+    "PelleResistente",
+    "Pelle di Diamante"
+  ],
   "172": [
     "Corazza di Metallo",
     "Pelle Resistente",
@@ -854,7 +954,10 @@
     "Componente Supremo Alpha",
     "Spada Antimateria"
   ],
-  "18": ["Coltello diPietra", "Coltello a Baionetta"],
+  "18": [
+    "Coltello diPietra",
+    "Coltello a Baionetta"
+  ],
   "180": [
     "Rivestimento in Carbonio",
     "Acqua Brillante",
@@ -994,8 +1097,13 @@
     "Miscela",
     "Miscela Celeste"
   ],
-  "182": ["Laccio di Sangue", "Laccio della Fine"],
-  "183": ["Laccio di Sangue"],
+  "182": [
+    "Laccio di Sangue",
+    "Laccio della Fine"
+  ],
+  "183": [
+    "Laccio di Sangue"
+  ],
   "184": [
     "Laccio di Sangue",
     "Laccio della Fine",
@@ -1126,7 +1234,11 @@
     "Talismano Trifoglio",
     "Talismano Custode"
   ],
-  "19": ["Coltello di Pietra", "Coltello a Baionetta", "Coltello Esplosivo"],
+  "19": [
+    "Coltello di Pietra",
+    "Coltello a Baionetta",
+    "Coltello Esplosivo"
+  ],
   "190": [
     "Laccio di Sangue",
     "Laccio della Fine",
@@ -1200,8 +1312,15 @@
     "Miscela Celeste",
     "Placca Celeste"
   ],
-  "197": ["Coltello di Pietra", "Lavagna"],
-  "198": ["Coltello di Pietra", "Lavagna", "Targhetta"],
+  "197": [
+    "Coltello di Pietra",
+    "Lavagna"
+  ],
+  "198": [
+    "Coltello di Pietra",
+    "Lavagna",
+    "Targhetta"
+  ],
   "199": [
     "Coltello di Pietra",
     "Lavagna",
@@ -2017,9 +2136,17 @@
     "Catalizzatore Ultra",
     "Catalizzatore Necro"
   ],
-  "226": ["Placca di Resina", "Fiala di Energia"],
-  "227": ["Placca di Resina"],
-  "228": ["Lastra di Legno", "Arco di Legno"],
+  "226": [
+    "Placca di Resina",
+    "Fiala di Energia"
+  ],
+  "227": [
+    "Placca di Resina"
+  ],
+  "228": [
+    "Lastra di Legno",
+    "Arco di Legno"
+  ],
   "229": [
     "Lastra di Legno",
     "Arco di Legno",
@@ -2073,8 +2200,13 @@
     "Manico Diabolico",
     "Arco Modulare"
   ],
-  "235": ["Carica Ionica"],
-  "236": ["Carica Ionica", "Condensatore"],
+  "235": [
+    "Carica Ionica"
+  ],
+  "236": [
+    "Carica Ionica",
+    "Condensatore"
+  ],
   "237": [
     "Carica Ionica",
     "Condensatore",
@@ -2085,7 +2217,9 @@
     "Componente Elettrico Base",
     "Campo di Forza"
   ],
-  "24": ["Lastra di Metallo"],
+  "24": [
+    "Lastra di Metallo"
+  ],
   "241": [
     "Placca di Resina",
     "Fiala di Energia",
@@ -2362,8 +2496,17 @@
     "Componente Supremo Epsilon",
     "Scudo Antimateria"
   ],
-  "246": ["Lastra di Legno", "Tavolino", "Lastrone Fragile"],
-  "247": ["Lastra di Legno", "Tavolino", "Lastrone Fragile", "Lastrone Verde"],
+  "246": [
+    "Lastra di Legno",
+    "Tavolino",
+    "Lastrone Fragile"
+  ],
+  "247": [
+    "Lastra di Legno",
+    "Tavolino",
+    "Lastrone Fragile",
+    "Lastrone Verde"
+  ],
   "248": [
     "Lastra di Legno",
     "Tavolino",
@@ -2392,7 +2535,9 @@
     "Lastrone Potente",
     "Lastrone Corazzato"
   ],
-  "25": ["Lastra di Legno"],
+  "25": [
+    "Lastra di Legno"
+  ],
   "250": [
     "Placca di Resina",
     "Fiala di Energia",
@@ -2414,9 +2559,18 @@
     "Lastrone Corazzato",
     "Lastrone Sanguinario"
   ],
-  "251": ["Scudo Punta Singola"],
-  "252": ["Scudo Punta Singola", "Scudo Punta Doppia"],
-  "253": ["Scudo Punta Singola", "Scudo Punta Doppia", "Scudo Punta Tripla"],
+  "251": [
+    "Scudo Punta Singola"
+  ],
+  "252": [
+    "Scudo Punta Singola",
+    "Scudo Punta Doppia"
+  ],
+  "253": [
+    "Scudo Punta Singola",
+    "Scudo Punta Doppia",
+    "Scudo Punta Tripla"
+  ],
   "254": [
     "Scudo Punta Singola",
     "Scudo Punta Doppia",
@@ -2471,7 +2625,11 @@
     "Protezione Indistruttibile",
     "Rotella da Battaglia"
   ],
-  "26": ["Lastra di Legno", "Lastra di Metallo", "Scudo Debole"],
+  "26": [
+    "Lastra di Legno",
+    "Lastra di Metallo",
+    "Scudo Debole"
+  ],
   "260": [
     "Corazza di Metallo",
     "Protezione di Stoffa",
@@ -2583,9 +2741,15 @@
     "Tavolino",
     "Scudo Resistente"
   ],
-  "270": ["Acqua Brillante"],
-  "271": ["Rivestimento in Carbonio"],
-  "279": ["Bronzo"],
+  "270": [
+    "Acqua Brillante"
+  ],
+  "271": [
+    "Rivestimento in Carbonio"
+  ],
+  "279": [
+    "Bronzo"
+  ],
   "28": [
     "Lastra di Legno",
     "Lastra di Metallo",
@@ -2597,8 +2761,12 @@
     "Lastra di Metallo",
     "Scudo del Guerriero"
   ],
-  "286": ["Aura Sfavillante"],
-  "287": ["Aura Nera"],
+  "286": [
+    "Aura Sfavillante"
+  ],
+  "287": [
+    "Aura Nera"
+  ],
   "288": [
     "Aura Sfavillante",
     "Materiale della Fine",
@@ -2631,16 +2799,48 @@
     "Scudo del Guerriero",
     "Scudo di Diamante"
   ],
-  "296": ["Sigillo", "Sfera Tempesta"],
-  "297": ["Sigillo", "Cubo Rovina"],
-  "298": ["Sigillo", "Piramide Meteorite"],
-  "300": ["Sigillo"],
-  "303": ["Bronzo", "Carica Positiva"],
-  "304": ["Carica Negativa"],
-  "307": ["Bronzo", "Regolatore"],
-  "308": ["Bronzo", "Regolatore", "Regolatore Automatico"],
-  "309": ["Bronzo", "Regolatore", "Regolatore Automatico", "Regolatore Ultra"],
-  "310": ["Bronzo", "Carica Positiva", "Generatore di Massa"],
+  "296": [
+    "Sigillo",
+    "Sfera Tempesta"
+  ],
+  "297": [
+    "Sigillo",
+    "Cubo Rovina"
+  ],
+  "298": [
+    "Sigillo",
+    "Piramide Meteorite"
+  ],
+  "300": [
+    "Sigillo"
+  ],
+  "303": [
+    "Bronzo",
+    "Carica Positiva"
+  ],
+  "304": [
+    "Carica Negativa"
+  ],
+  "307": [
+    "Bronzo",
+    "Regolatore"
+  ],
+  "308": [
+    "Bronzo",
+    "Regolatore",
+    "Regolatore Automatico"
+  ],
+  "309": [
+    "Bronzo",
+    "Regolatore",
+    "Regolatore Automatico",
+    "Regolatore Ultra"
+  ],
+  "310": [
+    "Bronzo",
+    "Carica Positiva",
+    "Generatore di Massa"
+  ],
   "313": [
     "Cacciavite",
     "Bronzo",
@@ -2657,8 +2857,12 @@
     "Componente Elettronico Avanzato",
     "Cacciavite Sonico"
   ],
-  "314": ["Cacciavite"],
-  "316": ["Asse di Legno Lavorato"],
+  "314": [
+    "Cacciavite"
+  ],
+  "316": [
+    "Asse di Legno Lavorato"
+  ],
   "317": [
     "Aura Sfavillante",
     "Materiale della Fine",
@@ -2671,7 +2875,10 @@
     "Spirito del Fato",
     "Anima delle Ere"
   ],
-  "318": ["Lastra di Legno", "Clessidra"],
+  "318": [
+    "Lastra di Legno",
+    "Clessidra"
+  ],
   "319": [
     "Meccanismo di Ferro",
     "Meccanismo Dorato",
@@ -2719,8 +2926,14 @@
     "Sfera Tempesta",
     "Catalizzatore Neutrale"
   ],
-  "324": ["Materiale Ancestrale"],
-  "328": ["Carica Ionica", "Condensatore", "Condensatore Runico"],
+  "324": [
+    "Materiale Ancestrale"
+  ],
+  "328": [
+    "Carica Ionica",
+    "Condensatore",
+    "Condensatore Runico"
+  ],
   "329": [
     "Meccanismo di Ferro",
     "Meccanismo Dorato",
@@ -2783,7 +2996,10 @@
     "Flusso del Tempo",
     "Runa Temporale"
   ],
-  "332": ["Meccanismo di Ferro", "Runa Ingranaggio"],
+  "332": [
+    "Meccanismo di Ferro",
+    "Runa Ingranaggio"
+  ],
   "333": [
     "Meccanismo di Ferro",
     "Runa Ingranaggio",
@@ -2890,8 +3106,14 @@
     "Runa Meccanismo",
     "Runa della Struttura"
   ],
-  "335": ["Runa Stalattite"],
-  "336": ["Aggancio di Plutonio", "Runa Stalattite", "Runa Ametista"],
+  "335": [
+    "Runa Stalattite"
+  ],
+  "336": [
+    "Aggancio di Plutonio",
+    "Runa Stalattite",
+    "Runa Ametista"
+  ],
   "337": [
     "Spirito di Palladio",
     "Aggancio di Plutonio",
@@ -2906,9 +3128,18 @@
     "Catalizzatore Neutrale",
     "Runa di Cristallo"
   ],
-  "338": ["Runa Verde"],
-  "339": ["Aggancio di Plutonio", "Runa Verde", "Runa Alchemica"],
-  "34": ["Molotov", "Piccola Pistola"],
+  "338": [
+    "Runa Verde"
+  ],
+  "339": [
+    "Aggancio di Plutonio",
+    "Runa Verde",
+    "Runa Alchemica"
+  ],
+  "34": [
+    "Molotov",
+    "Piccola Pistola"
+  ],
   "340": [
     "Aura Nera",
     "Aggancio di Plutonio",
@@ -2932,7 +3163,9 @@
     "Runa Alchemica",
     "Runa Mistica"
   ],
-  "341": ["Runa Celeste"],
+  "341": [
+    "Runa Celeste"
+  ],
   "342": [
     "Runa Celeste",
     "Carica Ionica",
@@ -3022,9 +3255,17 @@
     "Spirito del Fato",
     "Spirito Alchemico"
   ],
-  "35": ["Aereo di Carta Piccolo"],
-  "357": ["Spirito di Palladio"],
-  "358": ["Cacciavite", "Lastra di Metallo", "Ingranaggio"],
+  "35": [
+    "Aereo di Carta Piccolo"
+  ],
+  "357": [
+    "Spirito di Palladio"
+  ],
+  "358": [
+    "Cacciavite",
+    "Lastra di Metallo",
+    "Ingranaggio"
+  ],
   "359": [
     "Coltello di Pietra",
     "Lavagna",
@@ -3053,7 +3294,10 @@
     "Progetto di Costruzione",
     "Progetto Definitivo"
   ],
-  "36": ["Aereo di Carta Piccolo", "Aereo di Carta Grande"],
+  "36": [
+    "Aereo di Carta Piccolo",
+    "Aereo di Carta Grande"
+  ],
   "360": [
     "Cacciavite",
     "Lastra di Metallo",
@@ -3061,9 +3305,18 @@
     "Asse di Legno Lavorato",
     "Balaustrone"
   ],
-  "361": ["Coltello di Pietra", "Lavagna", "Foglio Blu"],
-  "363": ["Meccanismo di Ferro"],
-  "364": ["Meccanismo di Ferro", "Meccanismo Dorato"],
+  "361": [
+    "Coltello di Pietra",
+    "Lavagna",
+    "Foglio Blu"
+  ],
+  "363": [
+    "Meccanismo di Ferro"
+  ],
+  "364": [
+    "Meccanismo di Ferro",
+    "Meccanismo Dorato"
+  ],
   "365": [
     "Coltello di Pietra",
     "Lavagna",
@@ -3193,7 +3446,11 @@
     "Progetto di Costruzione",
     "Congegno Parallelo"
   ],
-  "37": ["Aereo di Carta Piccolo", "Aereo di Carta Grande", "Caccia di Carta"],
+  "37": [
+    "Aereo di Carta Piccolo",
+    "Aereo di Carta Grande",
+    "Caccia di Carta"
+  ],
   "370": [
     "Coltello di Pietra",
     "Lavagna",
@@ -3231,16 +3488,27 @@
     "Lega Metallica Ultraresistente",
     "Cella Blindata"
   ],
-  "374": ["Cerbottana"],
-  "376": ["Cerbottana", "Pistola ad Avancarica"],
-  "377": ["Proiettile"],
+  "374": [
+    "Cerbottana"
+  ],
+  "376": [
+    "Cerbottana",
+    "Pistola ad Avancarica"
+  ],
+  "377": [
+    "Proiettile"
+  ],
   "378": [
     "Proiettile",
     "Cerbottana",
     "Pistola ad Avancarica",
     "Pistola a Tamburo"
   ],
-  "379": ["Proiettile", "Rivestimento in Carbonio", "Caricatore Esterno"],
+  "379": [
+    "Proiettile",
+    "Rivestimento in Carbonio",
+    "Caricatore Esterno"
+  ],
   "38": [
     "Aereo di Carta Piccolo",
     "Aereo di Carta Grande",
@@ -3297,7 +3565,11 @@
     "Bronzo",
     "Scudo Storico Persiano"
   ],
-  "388": ["Lastra di Metallo", "Lastra di Ferro", "Anima dello Scudo"],
+  "388": [
+    "Lastra di Metallo",
+    "Lastra di Ferro",
+    "Anima dello Scudo"
+  ],
   "389": [
     "Lastra di Metallo",
     "Lastra di Ferro",
@@ -3418,7 +3690,9 @@
     "Scudo Storico Vichingo",
     "Scudo Storico Spartano"
   ],
-  "397": ["Acciaio Temprato"],
+  "397": [
+    "Acciaio Temprato"
+  ],
   "398": [
     "Lastra di Metallo",
     "Lastra di Ferro",
@@ -3432,7 +3706,10 @@
     "Anima dello Scudo Vichingo",
     "Anima dello Scudo Spartano"
   ],
-  "399": ["Lastra di Metallo", "Lastra di Ferro"],
+  "399": [
+    "Lastra di Metallo",
+    "Lastra di Ferro"
+  ],
   "40": [
     "Molotov",
     "Piccola Pistola",
@@ -3652,8 +3929,15 @@
     "Talismano Titano",
     "Talismano del Pendolo"
   ],
-  "405": ["Laccio Ancestrale"],
-  "408": ["Lastra di Legno", "Clessidra", "Bronzo", "Corazza Veterana"],
+  "405": [
+    "Laccio Ancestrale"
+  ],
+  "408": [
+    "Lastra di Legno",
+    "Clessidra",
+    "Bronzo",
+    "Corazza Veterana"
+  ],
   "409": [
     "Lastra di Legno",
     "Clessidra",
@@ -3661,7 +3945,9 @@
     "Corazza Veterana",
     "Corazza Secolare"
   ],
-  "41": ["Materiale della Fine"],
+  "41": [
+    "Materiale della Fine"
+  ],
   "410": [
     "Lastra di Legno",
     "Clessidra",
@@ -3729,14 +4015,20 @@
     "Anima delle Ere",
     "Armatura Primordiale"
   ],
-  "415": ["Laccio Ancestrale", "Materiale Ancestrale", "Spirito Ancestrale"],
+  "415": [
+    "Laccio Ancestrale",
+    "Materiale Ancestrale",
+    "Spirito Ancestrale"
+  ],
   "416": [
     "Bronzo",
     "Carica Positiva",
     "Generatore di Massa",
     "Bombola a Pressione"
   ],
-  "417": ["Rivestimento Rovente"],
+  "417": [
+    "Rivestimento Rovente"
+  ],
   "42": [
     "Materiale della Fine",
     "Coltello di Pietra",
@@ -3752,9 +4044,17 @@
     "Rivestimento Rovente",
     "Spada Vulcanica"
   ],
-  "421": ["Fornace"],
-  "422": ["Spada Rovente", "Fornace", "Lama Fusa"],
-  "423": ["Spada Rovente"],
+  "421": [
+    "Fornace"
+  ],
+  "422": [
+    "Spada Rovente",
+    "Fornace",
+    "Lama Fusa"
+  ],
+  "423": [
+    "Spada Rovente"
+  ],
   "424": [
     "Lastra di Legno",
     "Lastra di Metallo",
@@ -3799,7 +4099,9 @@
     "Piramide Meteorite",
     "Struttura della Piramide Meteorite"
   ],
-  "429": ["Rivestimento Boreale"],
+  "429": [
+    "Rivestimento Boreale"
+  ],
   "431": [
     "Respiro di Ferro",
     "Bronzo",
@@ -3816,7 +4118,11 @@
     "Arco Ciclonico",
     "Corda di Artemide"
   ],
-  "433": ["Bronzo", "Laccio di Sangue", "Arco Ciclonico"],
+  "433": [
+    "Bronzo",
+    "Laccio di Sangue",
+    "Arco Ciclonico"
+  ],
   "434": [
     "Corazza di Metallo",
     "Pelle Resistente",
@@ -3850,7 +4156,9 @@
     "Stemma Ciclonico",
     "Placca di Bufera"
   ],
-  "437": ["Respiro di Ferro"],
+  "437": [
+    "Respiro di Ferro"
+  ],
   "438": [
     "Meccanismo di Ferro",
     "Meccanismo Dorato",
@@ -3862,8 +4170,14 @@
     "Sfera Tempesta",
     "Struttura della Sfera Tempesta"
   ],
-  "439": ["Rivestimento Roccioso"],
-  "44": ["Lastra di Metallo", "Coltello di Pietra", "Spada di Metallo"],
+  "439": [
+    "Rivestimento Roccioso"
+  ],
+  "44": [
+    "Lastra di Metallo",
+    "Coltello di Pietra",
+    "Spada di Metallo"
+  ],
   "442": [
     "Cannone Lapidante",
     "Blocco del Sisma",
@@ -3871,10 +4185,23 @@
     "Rivestimento Roccioso",
     "Cannone Sismico"
   ],
-  "443": ["Blocco del Sisma"],
-  "444": ["Cannone Lapidante", "Blocco del Sisma", "Munizione Erosiva"],
-  "445": ["Cannone Lapidante"],
-  "446": ["Lastra di Legno", "Tavolino", "Lastrone Fragile", "Torre Lapidante"],
+  "443": [
+    "Blocco del Sisma"
+  ],
+  "444": [
+    "Cannone Lapidante",
+    "Blocco del Sisma",
+    "Munizione Erosiva"
+  ],
+  "445": [
+    "Cannone Lapidante"
+  ],
+  "446": [
+    "Lastra di Legno",
+    "Tavolino",
+    "Lastrone Fragile",
+    "Torre Lapidante"
+  ],
   "447": [
     "Lastra di Legno",
     "Tavolino",
@@ -4066,7 +4393,9 @@
     "Catalizzatore Neutrale",
     "Catalizzatore dello Scudo Alchemico"
   ],
-  "455": ["Raggiera Reliquia"],
+  "455": [
+    "Raggiera Reliquia"
+  ],
   "456": [
     "Lastra di Legno",
     "Tavolino",
@@ -4893,7 +5222,10 @@
     "Rivestimento Elastico",
     "Meccanismo Artigli"
   ],
-  "468": ["Meccanismo di Ferro", "Mecha Artigli"],
+  "468": [
+    "Meccanismo di Ferro",
+    "Mecha Artigli"
+  ],
   "469": [
     "Meccanismo di Ferro",
     "Carica Negativa",
@@ -5033,7 +5365,9 @@
     "Regolatore Automatico",
     "Sega"
   ],
-  "473": ["Lama Circolare"],
+  "473": [
+    "Lama Circolare"
+  ],
   "474": [
     "Runa Verde",
     "Scudo Tetro",
@@ -5085,7 +5419,7 @@
     "Balaustrone",
     "Carica Negativa",
     "Base Elettrica",
-    "CircuitoElettrico",
+    "Circuito Elettrico",
     "Componente Elettrico Base",
     "Motore Elettrico",
     "Meccanismo di Ferro",
@@ -5430,7 +5764,11 @@
     "Campo di Forza",
     "Batteria Infinita"
   ],
-  "480": ["Base Elettrica", "Circuito Elettrico", "Conduttore in Adamantio"],
+  "480": [
+    "Base Elettrica",
+    "Circuito Elettrico",
+    "Conduttore in Adamantio"
+  ],
   "481": [
     "Runa Verde",
     "Scudo Tetro",
@@ -6012,7 +6350,9 @@
     "Catalizzatore Neutrale",
     "Scudo Mistico"
   ],
-  "49": ["Martello Acciaio"],
+  "49": [
+    "Martello Acciaio"
+  ],
   "490": [
     "Runa Verde",
     "Scudo Tetro",
@@ -6022,8 +6362,14 @@
     "Runa Alchemica",
     "Scudo Calderone"
   ],
-  "491": ["Runa Verde", "Scudo Tetro"],
-  "493": ["Runa Verde", "Talismano Tetro"],
+  "491": [
+    "Runa Verde",
+    "Scudo Tetro"
+  ],
+  "493": [
+    "Runa Verde",
+    "Talismano Tetro"
+  ],
   "494": [
     "Runa Verde",
     "Talismano Tetro",
@@ -6272,8 +6618,15 @@
     "Generatore di Massa",
     "Meccanismo di Massa"
   ],
-  "50": ["Martello Acciaio", "Martello Distruttore"],
-  "500": ["Meccanismo di Ferro", "Carica Negativa", "Meccanismo Magnetico"],
+  "50": [
+    "Martello Acciaio",
+    "Martello Distruttore"
+  ],
+  "500": [
+    "Meccanismo di Ferro",
+    "Carica Negativa",
+    "Meccanismo Magnetico"
+  ],
   "501": [
     "Meccanismo di Ferro",
     "Carica Negativa",
@@ -6328,12 +6681,28 @@
     "Generatore di Massa",
     "Motore a Stasi"
   ],
-  "503": ["Martello Primitivo"],
-  "504": ["Spadone Primitivo"],
-  "505": ["Lancia Primitiva"],
-  "506": ["Martello Primitivo", "Martello Pesante"],
-  "507": ["Spadone Primitivo", "Bronzo", "Spadone Pesante"],
-  "508": ["Lancia Primitiva", "Lancia Lunga"],
+  "503": [
+    "Martello Primitivo"
+  ],
+  "504": [
+    "Spadone Primitivo"
+  ],
+  "505": [
+    "Lancia Primitiva"
+  ],
+  "506": [
+    "Martello Primitivo",
+    "Martello Pesante"
+  ],
+  "507": [
+    "Spadone Primitivo",
+    "Bronzo",
+    "Spadone Pesante"
+  ],
+  "508": [
+    "Lancia Primitiva",
+    "Lancia Lunga"
+  ],
   "509": [
     "Martello Primitivo",
     "Martello Pesante",
@@ -6361,7 +6730,11 @@
     "Marmo",
     "Spadone di Pietra"
   ],
-  "511": ["Lancia Primitiva", "Lancia Lunga", "Lancia di Pietra"],
+  "511": [
+    "Lancia Primitiva",
+    "Lancia Lunga",
+    "Lancia di Pietra"
+  ],
   "512": [
     "Martello Primitivo",
     "Martello Pesante",
@@ -6409,7 +6782,10 @@
     "Martello Antico",
     "Arma della Reliquia"
   ],
-  "516": ["Rivestimento in Carbonio", "Bastone Resistente"],
+  "516": [
+    "Rivestimento in Carbonio",
+    "Bastone Resistente"
+  ],
   "517": [
     "Rivestimento in Carbonio",
     "Bastone Resistente",
@@ -7854,7 +8230,11 @@
     "Corazza Antimateria",
     "Necrocomponente XV"
   ],
-  "535": ["Rivestimento di Piombo", "Marmo", "Opale Lavico"],
+  "535": [
+    "Rivestimento di Piombo",
+    "Marmo",
+    "Opale Lavico"
+  ],
   "536": [
     "Rivestimento di Piombo",
     "Marmo",
@@ -7885,7 +8265,11 @@
     "Meccanismo Magnetico",
     "Diamante Vitale"
   ],
-  "540": ["Placca di Resina", "Fiala di Energia", "Agata Gelida"],
+  "540": [
+    "Placca di Resina",
+    "Fiala di Energia",
+    "Agata Gelida"
+  ],
   "541": [
     "Placca di Resina",
     "Fiala di Energia",
@@ -8428,7 +8812,9 @@
     "Runa Ametista",
     "Lastrone di Diamante"
   ],
-  "56": ["Protezione di Stoffa"],
+  "56": [
+    "Protezione di Stoffa"
+  ],
   "560": [
     "Placca di Resina",
     "Fiala di Energia",
@@ -8703,8 +9089,14 @@
     "Runa Stellare",
     "Nucleo Supernova"
   ],
-  "566": ["Pettorale Celeste"],
-  "567": ["Pettorale Celeste", "Runa Celeste", "Corazza Stellare"],
+  "566": [
+    "Pettorale Celeste"
+  ],
+  "567": [
+    "Pettorale Celeste",
+    "Runa Celeste",
+    "Corazza Stellare"
+  ],
   "568": [
     "Pettorale Celeste",
     "Runa Celeste",
@@ -8833,7 +9225,10 @@
     "Nucleo Supernova",
     "Armatura Galattica"
   ],
-  "57": ["Protezione di Stoffa", "Protezione di Metallo"],
+  "57": [
+    "Protezione di Stoffa",
+    "Protezione di Metallo"
+  ],
   "571": [
     "Bronzo",
     "Carica Positiva",
@@ -8893,7 +9288,10 @@
     "Talismano Titano",
     "Flusso dello Spazio"
   ],
-  "573": ["Acqua Brillante", "Lancia Celeste"],
+  "573": [
+    "Acqua Brillante",
+    "Lancia Celeste"
+  ],
   "574": [
     "Acqua Brillante",
     "Lancia Celeste",
@@ -9324,7 +9722,11 @@
     "Catalizzatore Necro",
     "Corazza Necro"
   ],
-  "58": ["Protezione di Stoffa", "Protezione di Metallo", "Protezione Acciaio"],
+  "58": [
+    "Protezione di Stoffa",
+    "Protezione di Metallo",
+    "Protezione Acciaio"
+  ],
   "59": [
     "Rivestimento Roccioso",
     "Protezione di Stoffa",
@@ -9638,7 +10040,9 @@
     "Scudo Antimateria",
     "Necrocomponente XIX"
   ],
-  "60": ["Talismano della Rapidità"],
+  "60": [
+    "Talismano della Rapidità"
+  ],
   "600": [
     "Lastra di Legno",
     "Tavolino",
@@ -10104,9 +10508,15 @@
     "Nucleo Nova",
     "Talismano Nutriente"
   ],
-  "61": ["Talismano della Fortuna"],
-  "612": ["Cuoio"],
-  "62": ["Talismano della Forza"],
+  "61": [
+    "Talismano della Fortuna"
+  ],
+  "612": [
+    "Cuoio"
+  ],
+  "62": [
+    "Talismano della Forza"
+  ],
   "620": [
     "Proiettile",
     "Bomba di Schegge",
@@ -10427,7 +10837,9 @@
     "Mitragliatrice Gatling",
     "Artiglieria del Trionfatore"
   ],
-  "626": ["Trasduttore dell'Apocalisse"],
+  "626": [
+    "Trasduttore dell'Apocalisse"
+  ],
   "627": [
     "Proiettile",
     "Bomba di Schegge",
@@ -10945,7 +11357,11 @@
     "Congegno Parallelo",
     "Innesto Celeste"
   ],
-  "63": ["Placca di Resina", "Fiala di Energia", "Talismano della Resistenza"],
+  "63": [
+    "Placca di Resina",
+    "Fiala di Energia",
+    "Talismano della Resistenza"
+  ],
   "630": [
     "Acqua Brillante",
     "Lancia Celeste",
@@ -12592,7 +13008,7 @@
     "Balaustrone",
     "Carica Negativa",
     "Base Elettrica",
-    "CircuitoElettrico",
+    "Circuito Elettrico",
     "Componente Elettrico Base",
     "Motore Elettrico",
     "Meccanismo di Ferro",
@@ -16066,7 +16482,9 @@
     "Necrolama",
     "Necrolama di Hydros"
   ],
-  "643": ["Aggancio di Plutonio"],
+  "643": [
+    "Aggancio di Plutonio"
+  ],
   "645": [
     "Spada Rovente",
     "Fornace",
@@ -16194,8 +16612,12 @@
     "Scudo Mini Drak",
     "Scudo Drak"
   ],
-  "658": ["Infuso di Sangue"],
-  "659": ["Lega Particolata"],
+  "658": [
+    "Infuso di Sangue"
+  ],
+  "659": [
+    "Lega Particolata"
+  ],
   "66": [
     "Laccio di Sangue",
     "Laccio della Fine",
@@ -20142,7 +20564,7 @@
     "Aura Nera",
     "Generatore del Vuoto",
     "Base Elettrica",
-    "CircuitoElettrico",
+    "Circuito Elettrico",
     "Componente Elettrico Base",
     "Rivestimento in Carbonio",
     "Acqua Brillante",
@@ -22121,14 +22543,19 @@
     "Talismano Guerriero",
     "Talismano Corrosivo"
   ],
-  "699": ["Trasduttore dell'Implosione"],
+  "699": [
+    "Trasduttore dell'Implosione"
+  ],
   "707": [
     "Infuso di Sangue",
     "Spirito di Palladio",
     "Lama Cremisi",
     "Palladio Rinforzato"
   ],
-  "708": ["Materiale Ancestrale", "Pietra Gemmata"],
+  "708": [
+    "Materiale Ancestrale",
+    "Pietra Gemmata"
+  ],
   "709": [
     "Materiale Ancestrale",
     "Pietra Gemmata",
@@ -23534,15 +23961,22 @@
     "Coltello Diabolico",
     "Ordigno Polverizzatore"
   ],
-  "759": ["Intruglio Revitalizzante"],
-  "81": ["Rivestimento Statico"],
+  "759": [
+    "Intruglio Revitalizzante"
+  ],
+  "81": [
+    "Rivestimento Statico"
+  ],
   "82": [
     "Rivestimento in Carbonio",
     "Acqua Brillante",
     "Rivestimento Elastico",
     "Catalizzatore X"
   ],
-  "83": ["Rivestimento Statico", "Catalizzatore Y"],
+  "83": [
+    "Rivestimento Statico",
+    "Catalizzatore Y"
+  ],
   "84": [
     "Rivestimento Statico",
     "Catalizzatore Y",
@@ -23664,7 +24098,9 @@
     "Protezione Indistruttibile",
     "Rivestimento in Ambra Protettiva"
   ],
-  "95": ["Bomba di Schegge"],
+  "95": [
+    "Bomba di Schegge"
+  ],
   "99": [
     "Rivestimento Statico",
     "Catalizzatore Y",
