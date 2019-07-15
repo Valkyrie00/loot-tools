@@ -65,7 +65,10 @@ func mapCrafts(items map[int]Item) CraftingMapType {
 		log.Println("LOAD - CaftingMap: OK!")
 
 		byteValue, _ := ioutil.ReadAll(craftingMapsFile)
-		json.Unmarshal([]byte(byteValue), &itemsCraftingMap)
+		err = json.Unmarshal([]byte(byteValue), &itemsCraftingMap)
+		if err != nil {
+			log.Panicln(err)
+		}
 
 	} else if os.IsNotExist(err) {
 

@@ -37,11 +37,6 @@ func init() {
 
 	// Load craftable items and map
 	craftableItems, craftingItemsList = loot.SyncItems()
-
-	// craftableItems = loot.GetCraftableItems()
-
-	// Load crafting map
-	// craftingItemsList = loot.GetCraftingMap(craftableItems)
 }
 
 //Handler - Updates Handler
