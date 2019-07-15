@@ -7,14 +7,14 @@ import (
 	"strconv"
 
 	"github.com/Valkyrie00/loot-tools/loot"
-	"github.com/go-telegram-bot-api/telegram-bot-api"
-	_ "github.com/joho/godotenv/autoload"
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
+	_ "github.com/joho/godotenv/autoload" // .env
 )
 
 var (
 	bot               *tgbotapi.BotAPI
 	craftableItems    loot.Items
-	craftingItemsList loot.ItemsCraftingMapType
+	craftingItemsList loot.CraftingMapType
 
 	botMode   string
 	adminID   int
@@ -36,7 +36,7 @@ func init() {
 	log.Println(fmt.Sprintf("Bot connected: %s", bot.Self.UserName))
 
 	// Load craftable items
-	craftableItems = loot.GetCraftableItems()
+	// craftableItems = loot.GetCraftableItems()
 
 	// Load crafting map
 	craftingItemsList = loot.GetCraftingMap(craftableItems)
@@ -53,36 +53,25 @@ func Handler() {
 	}
 
 	for update := range updates {
+		// Check bot access mode
+		if botMode == "private" {
+			if update.Message.From.ID != adminID || update.InlineQuery.From.ID != adminID {
+				continue
+			}
+		}
+
 		// Message
 		if update.Message != nil {
-			if botMode == "private" {
-				if update.Message.From.ID != adminID {
-					continue
-				}
-			}
-
 			message(update.Message)
 		}
 
 		// Inline query
 		if update.InlineQuery != nil && update.InlineQuery.Query != "" {
-			if botMode == "private" {
-				if update.InlineQuery.From.ID != adminID {
-					continue
-				}
-			}
-
 			inline(update.InlineQuery)
 		}
 
 		// CallbackQuery
 		if update.CallbackQuery != nil {
-			if botMode == "private" {
-				if update.InlineQuery.From.ID != adminID {
-					continue
-				}
-			}
-
 			callback(update.CallbackQuery)
 		}
 	}
