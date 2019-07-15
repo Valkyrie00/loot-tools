@@ -36,20 +36,20 @@ type Item struct {
 type Items []Item
 
 // FindItemByID - Search item By name
-func (items Items) FindItemByID(id int) Item {
-	for _, item := range items {
-		if item.ID == id {
-			return item
-		}
-	}
+// func (items Items) FindItemByID(id int) Item {
+// 	for _, item := range items {
+// 		if item.ID == id {
+// 			return item
+// 		}
+// 	}
 
-	return Item{}
-}
+// 	return Item{}
+// }
 
 // CraftResponse - struct
 type CraftResponse struct {
 	Code int
-	Item string
+	Item int
 	Res  []Craft `json:"res"`
 }
 

@@ -13,7 +13,7 @@ import (
 
 var (
 	bot               *tgbotapi.BotAPI
-	craftableItems    loot.Items
+	craftableItems    map[int]loot.Item
 	craftingItemsList loot.CraftingMapType
 
 	botMode   string
@@ -35,11 +35,13 @@ func init() {
 	}
 	log.Println(fmt.Sprintf("Bot connected: %s", bot.Self.UserName))
 
-	// Load craftable items
+	// Load craftable items and map
+	craftableItems, craftingItemsList = loot.SyncItems()
+
 	// craftableItems = loot.GetCraftableItems()
 
 	// Load crafting map
-	craftingItemsList = loot.GetCraftingMap(craftableItems)
+	// craftingItemsList = loot.GetCraftingMap(craftableItems)
 }
 
 //Handler - Updates Handler

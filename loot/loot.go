@@ -22,14 +22,13 @@ func init() {
 }
 
 // SyncItems - getter and setter lootbot items
-func SyncItems() {
+func SyncItems() (map[int]Item, CraftingMapType) {
 	// Step 1 - load craftable items
 	craftableItems := getCraftableItems()
 
 	mapOfCrafts := mapCrafts(craftableItems)
 
-	// log.Panicln("Fine")
-	log.Panicln(mapOfCrafts)
+	return craftableItems, mapOfCrafts
 }
 
 // getCraftableItems - Get from remote all craftable items
@@ -56,39 +55,55 @@ func getCraftableItems() map[int]Item {
 func mapCrafts(items map[int]Item) CraftingMapType {
 	itemsCraftingMap := make(CraftingMapType)
 
-	// Not Exist
-	for i, item := range items {
-		// Debugger limit
-		// if item.ID != 627 {
-		// 	continue
-		// }
+	if _, err := os.Stat("assets/crafting-map.json"); err == nil {
+		// Exist
+		craftingMapsFile, err := os.Open("assets/crafting-map.json")
+		if err != nil {
+			fmt.Println(err)
+		}
 
-		log.Println(len(items), i, "Getting crafting list: "+item.Name)
+		log.Println("LOAD - CaftingMap: OK!")
 
-		// Get all needed IDs
-		var neededIDS []int
-		neededIDS = append(neededIDS, item.ID)
-		makeNeededIDs(item.ID, &neededIDS)
+		byteValue, _ := ioutil.ReadAll(craftingMapsFile)
+		json.Unmarshal([]byte(byteValue), &itemsCraftingMap)
 
-		// Minimize - return itemID:quantity
-		minifiedCrafting := minimizeCrafting(neededIDS)
+	} else if os.IsNotExist(err) {
 
-		// Reorder and get item name
-		reorderedCrafiting := reordersCrafting(minifiedCrafting, &items)
+		// Not Exist
+		for i, item := range items {
+			// Debugger limit
+			// if item.ID != 627 {
+			// 	continue
+			// }
 
-		// Associate
-		itemsCraftingMap[item.ID] = reorderedCrafiting
-	}
+			log.Println(len(items), i, "Getting crafting list: "+item.Name)
 
-	jCrafting, err := json.Marshal(itemsCraftingMap)
-	if err != nil {
-		log.Panicln(err)
-	}
+			// Get all needed IDs
+			var neededIDS []int
+			neededIDS = append(neededIDS, item.ID)
+			makeNeededIDs(item.ID, &neededIDS)
 
-	// Save to file
-	err = ioutil.WriteFile("assets/output.json", jCrafting, 0644)
-	if err != nil {
-		log.Panicln(err)
+			// Minimize - return itemID:quantity
+			minifiedCrafting := minimizeCrafting(neededIDS)
+
+			// Reorder and get item name
+			reorderedCrafiting := reordersCrafting(minifiedCrafting, &items)
+
+			// Associate
+			itemsCraftingMap[item.ID] = reorderedCrafiting
+		}
+
+		jCrafting, err := json.Marshal(itemsCraftingMap)
+		if err != nil {
+			log.Panicln(err)
+		}
+
+		// Save to file
+		err = ioutil.WriteFile("assets/crafting-map.json", jCrafting, 0644)
+		if err != nil {
+			log.Panicln(err)
+		}
+
 	}
 
 	return itemsCraftingMap
@@ -148,7 +163,7 @@ func makeNeededIDs(itemID int, neededIDS *[]int) {
 	var crafts CraftResponse
 
 	// Get crafting needed
-	if CacheResponseCraftsMap[itemID].Item != "" {
+	if _, ok := CacheResponseCraftsMap[itemID]; ok {
 		crafts = CacheResponseCraftsMap[itemID]
 	} else {
 		responseBaseCraft := CallFenixWs(fmt.Sprintf("http://fenixweb.net:3300/api/v2/%v/crafts/%v/needed", LootToken, itemID))
