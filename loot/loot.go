@@ -13,10 +13,11 @@ import (
 var (
 	LootToken              string
 	CacheResponseCraftsMap map[int]CraftResponse
-	RarityList             = []string{"C", "NC", "R", "UR", "L", "E", "UE", "U", "S", "I", "D", "X"}
+	ForceMap               string
 )
 
 func init() {
+	ForceMap = os.Getenv("FORCE_MAP")
 	LootToken = os.Getenv("LOOT_APIKEY")
 	CacheResponseCraftsMap = make(map[int]CraftResponse)
 }
@@ -53,6 +54,18 @@ func getCraftableItems() map[int]Item {
 }
 
 func mapCrafts(items map[int]Item) CraftingMapType {
+	var itemsCraftingMap CraftingMapType
+
+	if ForceMap == "true" {
+		itemsCraftingMap = createMapFile(items)
+	} else {
+		itemsCraftingMap = loadMapFile(items)
+	}
+
+	return itemsCraftingMap
+}
+
+func loadMapFile(items map[int]Item) CraftingMapType {
 	itemsCraftingMap := make(CraftingMapType)
 
 	if _, err := os.Stat("assets/crafting-map.json"); err == nil {
@@ -71,98 +84,107 @@ func mapCrafts(items map[int]Item) CraftingMapType {
 		}
 
 	} else if os.IsNotExist(err) {
-
-		// Not Exist
-		for i, item := range items {
-			// Debugger limit
-			// if item.ID != 627 {
-			// 	continue
-			// }
-
-			log.Println(len(items), i, "Getting crafting list: "+item.Name)
-
-			// Get all needed IDs
-			var neededIDS []int
-			neededIDS = append(neededIDS, item.ID)
-			makeNeededIDs(item.ID, &neededIDS)
-
-			// Minimize - return itemID:quantity
-			minifiedCrafting := minimizeCrafting(neededIDS)
-
-			// Reorder and get item name
-			reorderedCrafiting := reordersCrafting(minifiedCrafting, &items)
-
-			// Associate
-			itemsCraftingMap[item.ID] = reorderedCrafiting
-		}
-
-		jCrafting, err := json.Marshal(itemsCraftingMap)
-		if err != nil {
-			log.Panicln(err)
-		}
-
-		// Save to file
-		err = ioutil.WriteFile("assets/crafting-map.json", jCrafting, 0644)
-		if err != nil {
-			log.Panicln(err)
-		}
-
+		itemsCraftingMap = createMapFile(items)
 	}
 
 	return itemsCraftingMap
 }
 
-func reordersCrafting(minifiedCrafting map[int]int, items *map[int]Item) []string {
-	var sortedByRarity = make(map[string][]string)
+func createMapFile(items map[int]Item) CraftingMapType {
+	itemsCraftingMap := make(CraftingMapType)
+
+	// Not Exist
+	for i, item := range items {
+		// Debugger limit
+		// if item.ID != 229 {
+		// 	continue
+		// }
+
+		log.Println(len(items), i, "Getting crafting list: "+item.Name)
+
+		// Get all needed IDs and list
+		var neededIDS []int
+		makeNeeded(item.ID, &neededIDS)
+		neededIDS = append(neededIDS, item.ID)
+
+		// Minimize - return string:quantity
+		minifiedCrafting := minimizeCrafting(neededIDS)
+
+		// Reorder and get item name
+		reorderedCrafiting := reordersCrafting(minifiedCrafting, &items)
+
+		// Associate
+		itemsCraftingMap[item.ID] = reorderedCrafiting
+	}
+
+	jCrafting, err := json.Marshal(itemsCraftingMap)
+	if err != nil {
+		log.Panicln(err)
+	}
+
+	// Save to file
+	err = ioutil.WriteFile("assets/crafting-map.json", jCrafting, 0644)
+	if err != nil {
+		log.Panicln(err)
+	}
+
+	return itemsCraftingMap
+}
+
+func reordersCrafting(minifiedCrafting []MinyCrafting, items *map[int]Item) []string {
+	var reorderedCrafting []string
 
 	// Sort crafting
-	for key, quantity := range minifiedCrafting {
-		item := (*items)[key]
+	for _, miny := range minifiedCrafting {
+		item := (*items)[miny.ItemID]
 
 		// Stupid split ( Max 3 qty for element in a row )
-		if quantity == 1 {
-			sortedByRarity[item.Rarity] = append(sortedByRarity[item.Rarity], fmt.Sprintf("%s", item.Name))
-		} else if quantity > 1 && quantity < 3 {
-			sortedByRarity[item.Rarity] = append(sortedByRarity[item.Rarity], fmt.Sprintf("%s,%v", item.Name, quantity))
-		} else if quantity >= 3 {
+		if miny.Quantity == 1 {
+			reorderedCrafting = append(reorderedCrafting, fmt.Sprintf("%s", item.Name))
+		} else if miny.Quantity > 1 && miny.Quantity < 3 {
+			reorderedCrafting = append(reorderedCrafting, fmt.Sprintf("%s,%v", item.Name, miny.Quantity))
+		} else if miny.Quantity >= 3 {
 			x := 0
-			for index := 0; index < quantity; index++ {
+			for index := 0; index < miny.Quantity; index++ {
 				x++
 
 				if x == 3 {
-					sortedByRarity[item.Rarity] = append(sortedByRarity[item.Rarity], fmt.Sprintf("%s,%v", item.Name, x))
+					reorderedCrafting = append(reorderedCrafting, fmt.Sprintf("%s,%v", item.Name, x))
 					x = 0
 					continue
 				}
 			}
 			if x > 0 {
-				sortedByRarity[item.Rarity] = append(sortedByRarity[item.Rarity], fmt.Sprintf("%s,%v", item.Name, x))
+				reorderedCrafting = append(reorderedCrafting, fmt.Sprintf("%s,%v", item.Name, x))
 			}
-		}
-	}
-
-	// Reording by rarity type
-	var reorderedCrafting []string
-	for _, rarity := range RarityList {
-		for _, item := range sortedByRarity[rarity] {
-			reorderedCrafting = append(reorderedCrafting, item)
 		}
 	}
 
 	return reorderedCrafting
 }
 
-func minimizeCrafting(itemsIDS []int) map[int]int {
-	var minified = make(map[int]int)
+func minimizeCrafting(itemsList []int) []MinyCrafting {
+	var minifieds []MinyCrafting
 
-	for _, item := range itemsIDS {
-		minified[item]++
+	for _, item := range itemsList {
+		exists := false
+
+		for kMiny, vMiny := range minifieds {
+			if vMiny.ItemID == item {
+				minifieds[kMiny].Quantity++
+				exists = true
+			}
+		}
+
+		if exists == false {
+			minifieds = append(minifieds, MinyCrafting{ItemID: item, Quantity: 1})
+		}
 	}
 
-	return minified
+	return minifieds
 }
 
-func makeNeededIDs(itemID int, neededIDS *[]int) {
+func makeNeeded(itemID int, neededIDS *[]int) {
 	var crafts CraftResponse
 
 	// Get crafting needed
@@ -183,7 +205,7 @@ func makeNeededIDs(itemID int, neededIDS *[]int) {
 	for _, craft := range crafts.Res {
 		if craft.Craftable == 1 {
 			*neededIDS = append([]int{craft.ID}, *neededIDS...)
-			makeNeededIDs(craft.ID, neededIDS)
+			makeNeeded(craft.ID, neededIDS)
 		}
 	}
 }

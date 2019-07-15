@@ -39,8 +39,7 @@ func init() {
 	craftableItems, craftingItemsList = loot.SyncItems()
 }
 
-//Handler - Updates Handler
-func Handler() {
+func GetUpdates() {
 	u := tgbotapi.NewUpdate(0)
 	u.Timeout = 60
 
@@ -50,26 +49,31 @@ func Handler() {
 	}
 
 	for update := range updates {
-		// Check bot access mode
-		if botMode == "private" {
-			if update.Message.From.ID != adminID || update.InlineQuery.From.ID != adminID {
-				continue
-			}
-		}
+		go Handler(update)
+	}
+}
 
-		// Message
-		if update.Message != nil {
-			message(update.Message)
+//Handler - Updates Handler
+func Handler(update tgbotapi.Update) {
+	// Check bot access mode
+	if botMode == "private" {
+		if update.Message.From.ID != adminID || update.InlineQuery.From.ID != adminID {
+			return
 		}
+	}
 
-		// Inline query
-		if update.InlineQuery != nil && update.InlineQuery.Query != "" {
-			inline(update.InlineQuery)
-		}
+	// Message
+	if update.Message != nil {
+		message(update.Message)
+	}
 
-		// CallbackQuery
-		if update.CallbackQuery != nil {
-			callback(update.CallbackQuery)
-		}
+	// Inline query
+	if update.InlineQuery != nil && update.InlineQuery.Query != "" {
+		inline(update.InlineQuery)
+	}
+
+	// CallbackQuery
+	if update.CallbackQuery != nil {
+		callback(update.CallbackQuery)
 	}
 }

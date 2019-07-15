@@ -63,3 +63,9 @@ type Craft struct {
 
 // CraftingMapType - Crafting Map Type
 type CraftingMapType map[int][]string
+
+//MinyCrafting - struct for minimize crafting
+type MinyCrafting struct {
+	ItemID   int
+	Quantity int
+}

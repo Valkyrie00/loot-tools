@@ -1,5 +1,0 @@
-package: github.com/Valkyrie00/loot-tools
-import:
-- package: github.com/go-telegram-bot-api/telegram-bot-api
-- package: github.com/joho/godotenv
-  version: v1.3.0
