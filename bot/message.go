@@ -3,6 +3,7 @@ package bot
 import (
 	"fmt"
 	"log"
+	"math"
 	"strconv"
 	"strings"
 
@@ -340,7 +341,8 @@ func lcbNeededListShop(divider string, message *tgbotapi.Message) {
 					continue
 				}
 			} else {
-				itemQuantity = itemQuantity / divisor
+				fItemQuantity := float64(itemQuantity) / float64(divisor)
+				itemQuantity = int(math.Ceil(fItemQuantity))
 			}
 
 			if itemQuantity > 0 {
