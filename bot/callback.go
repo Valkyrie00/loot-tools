@@ -2,12 +2,18 @@ package bot
 
 import (
 	"log"
+	"strings"
 
-	"github.com/go-telegram-bot-api/telegram-bot-api"
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 )
 
 func callback(CallbackQuery *tgbotapi.CallbackQuery) {
 	data := CallbackQuery.Data
+
+	// Hack for lcbNeededListShop
+	if strings.Contains(data, "lcbNeededListShop") {
+		data = "lcbNeededListShop"
+	}
 
 	switch data {
 	case "lootPlatformCraftParser":
@@ -17,6 +23,17 @@ func callback(CallbackQuery *tgbotapi.CallbackQuery) {
 	case "lootPlatformShopParser":
 		// From loot plataform generate shop string for clb
 		lootPlatformShopParser(CallbackQuery.Message.ReplyToMessage)
+
+	case "lcbNeededListEmpty":
+		// Clear needed list map (CLB)
+		lcbNeededListEmpty(CallbackQuery.Message)
+
+	case "lcbNeededListCalculate":
+		lcbNeededListCalculate(CallbackQuery.Message)
+
+	case "lcbNeededListShop":
+		callbackSplitted := strings.Split(CallbackQuery.Data, "-")
+		lcbNeededListShop(callbackSplitted[1], CallbackQuery.Message)
 
 	case "deleteMessage":
 		deleteConfig := tgbotapi.DeleteMessageConfig{
