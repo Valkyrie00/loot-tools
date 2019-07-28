@@ -8,41 +8,48 @@ type ItemResponse struct {
 
 // Item - Item struct
 type Item struct {
-	ID          int    `json:"id"`
-	Name        string `json:"name"`
-	Rarity      string `json:"rarity"`
-	RarityName  string `json:"rarity_name"`
-	Value       int    `json:"value"`
-	Estimate    int    `json:"estimate"`
-	Craftable   int    `json:"craftable"`
-	Reborn      int    `json:"reborn"`
-	Power       int    `json:"power"`
-	PowerArmor  int    `json:"power_armor"`
-	PowerShield int    `json:"power_shield"`
-	DragonPower int    `json:"dragon_power"`
-	Critical    int    `json:"critical"`
-	CraftPnt    int    `json:"craft_pnt"`
-	ConsVal     string `json:"cons_val"`
+	ID          int     `json:"id"`
+	Name        string  `json:"name"`
+	Rarity      string  `json:"rarity"`
+	Description string  `json:"description"`
+	Value       int     `json:"value"`
+	MaxValue    int     `json:"max_value"`
+	Estimate    int     `json:"estimate"`
+	Spread      int     `json:"spread"`
+	SpreadTot   float32 `json:"spread_tot"`
+	Craftable   int     `json:"craftable"`
+	Reborn      int     `json:"reborn"`
+	Power       int     `json:"power"`
+	PowerArmor  int     `json:"power_armor"`
+	PowerShield int     `json:"power_shield"`
+	DragonPower int     `json:"dragon_power"`
+	Critical    int     `json:"critical"`
+	Category    int     `json:"category"`
+	Cons        int     `json:"cons"`
+	AllowSell   int     `json:"allow_sell"`
+	RarityName  string  `json:"rarity_name"`
+	CraftPnt    int     `json:"craft_pnt"`
+	ConsVal     float32 `json:"cons_val"`
 }
 
 // Items - Item list
 type Items []Item
 
 // FindItemByID - Search item By name
-func (items Items) FindItemByID(id int) Item {
-	for _, item := range items {
-		if item.ID == id {
-			return item
-		}
-	}
+// func (items Items) FindItemByID(id int) Item {
+// 	for _, item := range items {
+// 		if item.ID == id {
+// 			return item
+// 		}
+// 	}
 
-	return Item{}
-}
+// 	return Item{}
+// }
 
 // CraftResponse - struct
 type CraftResponse struct {
 	Code int
-	Item string
+	Item int
 	Res  []Craft `json:"res"`
 }
 
@@ -54,5 +61,11 @@ type Craft struct {
 	Craftable int    `json:"craftable"`
 }
 
-// ItemsCraftingMapType - Items Crafting Map Type
-type ItemsCraftingMapType map[int][]string
+// CraftingMapType - Crafting Map Type
+type CraftingMapType map[int][]string
+
+//MinyCrafting - struct for minimize crafting
+type MinyCrafting struct {
+	ItemID   int
+	Quantity int
+}

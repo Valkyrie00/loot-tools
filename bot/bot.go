@@ -7,14 +7,14 @@ import (
 	"strconv"
 
 	"github.com/Valkyrie00/loot-tools/loot"
-	"github.com/go-telegram-bot-api/telegram-bot-api"
-	_ "github.com/joho/godotenv/autoload"
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
+	_ "github.com/joho/godotenv/autoload" // .env
 )
 
 var (
 	bot               *tgbotapi.BotAPI
-	craftableItems    loot.Items
-	craftingItemsList loot.ItemsCraftingMapType
+	craftableItems    map[int]loot.Item
+	craftingItemsList loot.CraftingMapType
 
 	botMode   string
 	adminID   int
@@ -35,15 +35,11 @@ func init() {
 	}
 	log.Println(fmt.Sprintf("Bot connected: %s", bot.Self.UserName))
 
-	// Load craftable items
-	craftableItems = loot.GetCraftableItems()
-
-	// Load crafting map
-	craftingItemsList = loot.GetCraftingMap(craftableItems)
+	// Load craftable items and map
+	craftableItems, craftingItemsList = loot.SyncItems()
 }
 
-//Handler - Updates Handler
-func Handler() {
+func GetUpdates() {
 	u := tgbotapi.NewUpdate(0)
 	u.Timeout = 60
 
@@ -53,37 +49,31 @@ func Handler() {
 	}
 
 	for update := range updates {
-		// Message
-		if update.Message != nil {
-			if botMode == "private" {
-				if update.Message.From.ID != adminID {
-					continue
-				}
-			}
+		go Handler(update)
+	}
+}
 
-			message(update.Message)
+//Handler - Updates Handler
+func Handler(update tgbotapi.Update) {
+	// Check bot access mode
+	if botMode == "private" {
+		if update.Message.From.ID != adminID || update.InlineQuery.From.ID != adminID {
+			return
 		}
+	}
 
-		// Inline query
-		if update.InlineQuery != nil && update.InlineQuery.Query != "" {
-			if botMode == "private" {
-				if update.InlineQuery.From.ID != adminID {
-					continue
-				}
-			}
+	// Message
+	if update.Message != nil {
+		message(update.Message)
+	}
 
-			inline(update.InlineQuery)
-		}
+	// Inline query
+	if update.InlineQuery != nil && update.InlineQuery.Query != "" {
+		inline(update.InlineQuery)
+	}
 
-		// CallbackQuery
-		if update.CallbackQuery != nil {
-			if botMode == "private" {
-				if update.InlineQuery.From.ID != adminID {
-					continue
-				}
-			}
-
-			callback(update.CallbackQuery)
-		}
+	// CallbackQuery
+	if update.CallbackQuery != nil {
+		callback(update.CallbackQuery)
 	}
 }

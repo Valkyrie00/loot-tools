@@ -63,7 +63,7 @@ func inlineBaseCraft(InlineQuery *tgbotapi.InlineQuery) []interface{} {
 	switch craftingType {
 	case "B":
 		//craftingIndex is already incremented
-		baseItem := craftableItems.FindItemByID(itemID)
+		baseItem := craftableItems[itemID]
 
 		if craftingIndex <= len(craftingItemsList[itemID]) {
 			nextItem := craftingItemsList[itemID][craftingIndex]
